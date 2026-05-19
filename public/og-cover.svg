@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FAF4EA"/>
+  <circle cx="1036" cy="118" r="170" fill="#FFD7CA"/>
+  <circle cx="144" cy="534" r="220" fill="#CDEDEA"/>
+  <rect x="74" y="67" width="1052" height="496" rx="40" fill="white" fill-opacity="0.82"/>
+  <rect x="74" y="67" width="1052" height="496" rx="40" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="2"/>
+  <text x="132" y="210" fill="#CB4D29" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">SOCIAL PAYMENTS FOR MODERN COMMUNITIES</text>
+  <text x="132" y="308" fill="#10233B" font-family="Space Grotesk, Arial, sans-serif" font-size="76" font-weight="700">Sociopay helps people</text>
+  <text x="132" y="392" fill="#10233B" font-family="Space Grotesk, Arial, sans-serif" font-size="76" font-weight="700">move money together.</text>
+  <text x="132" y="458" fill="#5D6876" font-family="Space Grotesk, Arial, sans-serif" font-size="32">Built for communities, creators, teams, and shared financial momentum.</text>
+  <rect x="830" y="160" width="220" height="280" rx="32" fill="#10233B"/>
+  <rect x="850" y="192" width="180" height="34" rx="17" fill="#16304E"/>
+  <rect x="850" y="246" width="180" height="76" rx="24" fill="#FF6B3D"/>
+  <rect x="850" y="340" width="84" height="78" rx="18" fill="#1A3B5E"/>
+  <rect x="946" y="340" width="84" height="78" rx="18" fill="#0D9F97"/>
+  <text x="874" y="216" fill="#D6DFE8" font-family="Space Grotesk, Arial, sans-serif" font-size="15">Network Balance</text>
+  <text x="874" y="290" fill="white" font-family="Space Grotesk, Arial, sans-serif" font-size="40" font-weight="700">$12.4K</text>
+  <text x="874" y="384" fill="white" font-family="Space Grotesk, Arial, sans-serif" font-size="18" font-weight="700">Send</text>
+  <text x="971" y="384" fill="white" font-family="Space Grotesk, Arial, sans-serif" font-size="18" font-weight="700">Split</text>
+</svg>
