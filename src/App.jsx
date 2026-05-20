@@ -237,6 +237,7 @@ const initialForm = {
 };
 
 const supportEmail = 'hello@sociopay.app';
+const androidApkPath = '/downloads/sociopay-latest.apk';
 
 function encodeForm(data) {
   return new URLSearchParams(data).toString();
@@ -550,6 +551,7 @@ export default function App() {
           <a href="#features">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#preview">Preview</a>
+          <a href="#download">Download</a>
           <a href="#privacy">Privacy</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -904,21 +906,27 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section download-section">
+        <section className="section download-section" id="download">
           <div className="download-card reveal">
             <div>
-              <p className="eyebrow">Download & Demo</p>
-              <h2>Launch Sociopay as a product story, a sales demo, or the front door to your real app.</h2>
+              <p className="eyebrow">Direct Android Download</p>
+              <h2>Install Sociopay directly from the official website.</h2>
               <p>
-                Use this site to pitch societies, onboard pilot customers, and guide prospects toward a walkthrough, waitlist, or app release.
+                Download the signed Android APK from sociopay.in. If Android asks for permission,
+                allow installs from your browser only for this download, then turn it off again after installation.
               </p>
+              <div className="download-meta" aria-label="Android app download details">
+                <span>Android APK</span>
+                <span>Official Sociopay build</span>
+                <span>Updated with each release</span>
+              </div>
             </div>
             <div className="download-actions">
-              <a className="button" href="#contact">
-                Book a Demo
+              <a className="button" href={androidApkPath} download>
+                Download APK
               </a>
               <a className="button button-ghost" href={`mailto:${supportEmail}`}>
-                Request App Access
+                Need Help?
               </a>
             </div>
           </div>
