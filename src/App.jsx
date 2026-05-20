@@ -465,11 +465,11 @@ export default function App() {
     return () => observer.disconnect();
   }, [route]);
 
+  const canSubmit = useMemo(() => form.name.trim() && form.email.trim() && form.message.trim(), [form]);
+
   if (route === '#privacy') {
     return <PrivacyPolicyPage />;
   }
-
-  const canSubmit = useMemo(() => form.name.trim() && form.email.trim() && form.message.trim(), [form]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
