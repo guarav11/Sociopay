@@ -128,74 +128,21 @@ const pricingPlans = [
   },
 ];
 
-const previewScreens = [
+const appScreenshots = [
   {
     title: 'Dashboard',
-    subtitle: 'Welcome back, Admin',
-    badge: 'Monthly View',
-    metric: '₹48,000',
-    metricLabel: 'Closing Balance',
-    variant: 'dashboard',
-    stats: [
-      { label: 'Total Members', value: '128' },
-      { label: 'Paid', value: '92' },
-      { label: 'Pending', value: '36' },
-    ],
-    rows: [
-      { label: 'Opening Balance', value: '₹22,000' },
-      { label: 'Net Collected', value: '₹3,56,000' },
-      { label: 'Expenses', value: '₹1,18,000' },
-    ],
+    body: 'Admin overview with maintenance totals, paid and pending members, balances, and recent activity.',
+    image: '/dashboard-redacted.png',
   },
   {
     title: 'Members',
-    subtitle: 'Members',
-    badge: '128 residents',
-    metric: 'May',
-    metricLabel: 'Billing month',
-    variant: 'members',
-    actions: ['Export PDF', 'Export CSV'],
-    rows: [
-      { label: 'A-102 • Priya Shah', value: 'Paid' },
-      { label: 'B-204 • Amit Jain', value: 'Pending' },
-      { label: 'C-310 • Neha Patel', value: 'Paid' },
-    ],
+    body: 'Resident list with payment state, outstanding amount, due months, and export actions.',
+    image: '/members.png',
   },
   {
-    title: 'Reports',
-    subtitle: 'Monthly snapshot',
-    badge: 'Export reports',
-    metric: '₹3,56,000',
-    metricLabel: 'Net Collected',
-    variant: 'reports',
-    tiles: [
-      { label: 'Opening Balance', value: '₹22,000' },
-      { label: 'Gateway Charges', value: '₹2,140' },
-      { label: 'Pending Flats', value: '36' },
-      { label: 'Receipts Shared', value: '24' },
-    ],
-    rows: [
-      { label: 'Share My Receipt', value: 'Enabled' },
-      { label: 'Export PDF', value: 'Ready' },
-    ],
-  },
-  {
-    title: 'Profile',
-    subtitle: 'Resident and admin settings',
-    badge: 'Payment Settings',
-    metric: 'acc_xxxxx',
-    metricLabel: 'Linked Account ID',
-    variant: 'profile',
-    details: [
-      { label: 'Society', value: 'Palm Residency' },
-      { label: 'Residents', value: '128' },
-      { label: 'Payment status', value: 'Paid' },
-    ],
-    rows: [
-      { label: 'Monthly reminders', value: 'Enabled' },
-      { label: 'Raise Complaint', value: 'Available' },
-      { label: 'Edit Maintenance Amount', value: 'Admin' },
-    ],
+    title: 'Pay Now',
+    body: 'Outstanding payment review before residents proceed with maintenance payment.',
+    image: '/paynow.png',
   },
 ];
 
@@ -235,76 +182,6 @@ const androidApkPath = '/downloads/sociopay-latest.apk';
 
 function encodeForm(data) {
   return new URLSearchParams(data).toString();
-}
-
-function PreviewCard({ screen }) {
-  return (
-    <article className={`screen-card screen-card-${screen.variant} reveal`}>
-      <div className="screen-card-top">
-        <div>
-          <p>{screen.subtitle}</p>
-          <h3>{screen.title}</h3>
-        </div>
-        <span className="screen-badge">{screen.badge}</span>
-      </div>
-      <div className="screen-metric">
-        <strong>{screen.metric}</strong>
-        <span>{screen.metricLabel}</span>
-      </div>
-
-      {screen.stats ? (
-        <div className="screen-stat-grid">
-          {screen.stats.map((item) => (
-            <div className="screen-stat-pill" key={item.label}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      ) : null}
-
-      {screen.actions ? (
-        <div className="screen-action-row">
-          {screen.actions.map((item) => (
-            <span className="screen-action-chip" key={item}>
-              {item}
-            </span>
-          ))}
-        </div>
-      ) : null}
-
-      {screen.tiles ? (
-        <div className="screen-tile-grid">
-          {screen.tiles.map((tile) => (
-            <div className="screen-tile" key={tile.label}>
-              <span>{tile.label}</span>
-              <strong>{tile.value}</strong>
-            </div>
-          ))}
-        </div>
-      ) : null}
-
-      {screen.details ? (
-        <div className="screen-detail-list">
-          {screen.details.map((detail) => (
-            <div className="screen-detail" key={detail.label}>
-              <span>{detail.label}</span>
-              <strong>{detail.value}</strong>
-            </div>
-          ))}
-        </div>
-      ) : null}
-
-      <div className="screen-rows">
-        {screen.rows.map((row) => (
-          <div className="screen-row" key={row.label}>
-            <span>{row.label}</span>
-            <strong>{row.value}</strong>
-          </div>
-        ))}
-      </div>
-    </article>
-  );
 }
 
 function PrivacyPolicyPage() {
@@ -796,8 +673,14 @@ export default function App() {
             </article>
           </div>
           <div className="screen-grid">
-            {previewScreens.map((screen) => (
-              <PreviewCard key={screen.title} screen={screen} />
+            {appScreenshots.map((screen) => (
+              <article className="screenshot-card reveal" key={screen.title}>
+                <div>
+                  <span className="screen-badge">{screen.title}</span>
+                  <p>{screen.body}</p>
+                </div>
+                <img src={screen.image} alt={`${screen.title} screen in Sociopay`} />
+              </article>
             ))}
           </div>
         </section>
