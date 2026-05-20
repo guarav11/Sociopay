@@ -236,6 +236,8 @@ const initialForm = {
   botField: '',
 };
 
+const supportEmail = 'hello@sociopay.app';
+
 function encodeForm(data) {
   return new URLSearchParams(data).toString();
 }
@@ -310,9 +312,133 @@ function PreviewCard({ screen }) {
   );
 }
 
+function PrivacyPolicyPage() {
+  return (
+    <div className="page-shell legal-page">
+      <header className="topbar reveal is-visible">
+        <a className="brand" href="/#hero">
+          <img className="brand-logo" src="/sociopay-icon.png" alt="Sociopay logo" />
+          <span>
+            Sociopay
+            <small>Society operations</small>
+          </span>
+        </a>
+        <nav className="nav">
+          <a href="/#features">Features</a>
+          <a href="/#contact">Contact</a>
+          <a href="/#privacy">Privacy</a>
+        </nav>
+      </header>
+
+      <main className="legal-card">
+        <p className="eyebrow">Privacy Policy</p>
+        <h1>Sociopay Privacy Policy</h1>
+        <p className="legal-updated">Last updated: 20 May 2026</p>
+
+        <section>
+          <h2>1. Who We Are</h2>
+          <p>
+            Sociopay is a society maintenance management app for residential societies,
+            administrators, and residents. It helps manage member records, maintenance dues,
+            payments, receipts, expenses, complaints, reminders, and operational reports.
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Information We Collect</h2>
+          <p>
+            We may collect account and society information such as name, email address, phone
+            number, flat or unit number, society name, role, payment status, complaint details,
+            expense records, reminder preferences, and technical logs needed to operate and secure
+            the service.
+          </p>
+        </section>
+
+        <section>
+          <h2>3. Payments</h2>
+          <p>
+            Sociopay uses Razorpay-backed payment flows for maintenance collection. Payment orders
+            and verification are handled server-side. We do not store card numbers, UPI PINs, CVV
+            codes, or other sensitive payment instrument credentials in the app.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. How We Use Information</h2>
+          <p>
+            We use information to authenticate users, manage society operations, show dues and
+            receipts, process and verify payments, generate reports, send reminders, manage
+            complaints, improve reliability, prevent abuse, and provide support.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Sharing and Service Providers</h2>
+          <p>
+            We share data only when needed to run the service, such as with backend infrastructure,
+            authentication, notifications, payment processing, hosting, analytics, support tools, or
+            when required by law. We do not sell personal information.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Data Security</h2>
+          <p>
+            We use reasonable technical and organizational safeguards, including authenticated
+            access, role-based flows, server-side payment verification, and database access controls.
+            No online service can guarantee absolute security, but we work to protect user data.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Data Retention</h2>
+          <p>
+            We retain information for as long as needed to provide the service, maintain payment and
+            operational records, meet legal obligations, resolve disputes, and support society
+            administration.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Your Choices</h2>
+          <p>
+            You may request correction, access, or deletion of applicable personal information by
+            contacting us. Some records may need to be retained for legal, payment, security, or
+            accounting reasons.
+          </p>
+        </section>
+
+        <section>
+          <h2>9. Children</h2>
+          <p>
+            Sociopay is intended for society administrators and residents, not for children under 13.
+            We do not knowingly collect personal information from children.
+          </p>
+        </section>
+
+        <section>
+          <h2>10. Contact</h2>
+          <p>
+            For privacy questions or support, contact us at{' '}
+            <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+          </p>
+        </section>
+      </main>
+    </div>
+  );
+}
+
 export default function App() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ type: 'idle', message: '' });
+  const [route, setRoute] = useState(window.location.hash);
+
+  useEffect(() => {
+    const handleHashChange = () => setRoute(window.location.hash);
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   useEffect(() => {
     const items = document.querySelectorAll('.reveal');
@@ -337,7 +463,11 @@ export default function App() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [route]);
+
+  if (route === '#privacy') {
+    return <PrivacyPolicyPage />;
+  }
 
   const canSubmit = useMemo(() => form.name.trim() && form.email.trim() && form.message.trim(), [form]);
 
@@ -420,6 +550,7 @@ export default function App() {
           <a href="#features">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#preview">Preview</a>
+          <a href="#privacy">Privacy</a>
           <a href="#contact">Contact</a>
         </nav>
         <a className="button button-small button-ghost" href="#contact">
@@ -786,7 +917,7 @@ export default function App() {
               <a className="button" href="#contact">
                 Book a Demo
               </a>
-              <a className="button button-ghost" href="mailto:hello@sociopay.app">
+              <a className="button button-ghost" href={`mailto:${supportEmail}`}>
                 Request App Access
               </a>
             </div>
@@ -854,6 +985,7 @@ export default function App() {
           <a href="#pricing">Pricing</a>
           <a href="#preview">Preview</a>
           <a href="#faq">FAQ</a>
+          <a href="#privacy">Privacy</a>
         </div>
       </footer>
     </div>
