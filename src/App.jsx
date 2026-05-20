@@ -59,9 +59,18 @@ const steps = [
 ];
 
 const trustPoints = [
-  'Supabase-backed authentication and persistent sessions',
-  'Server-side payment order creation and signature verification',
-  'Transparent reports, payment history, and exportable receipts',
+  {
+    title: 'Secure account access',
+    body: 'Supabase authentication helps residents and admins sign in safely while keeping each society’s data scoped to the right users.',
+  },
+  {
+    title: 'Verified payment flow',
+    body: 'Payment orders and confirmations are handled server-side, so maintenance payments can be tracked with stronger reliability.',
+  },
+  {
+    title: 'Clear records and receipts',
+    body: 'Admins and residents can review payment history, reports, pending dues, and receipts without relying on scattered messages.',
+  },
 ];
 
 const investorPoints = [
@@ -622,7 +631,7 @@ export default function App() {
         <section className="section" id="pricing">
           <div className="section-heading reveal">
             <p className="eyebrow">Pricing</p>
-            <h2>Position Sociopay as an easy pilot first, then expand into a full operating layer.</h2>
+            <h2>Start with a free trial, then choose the right plan for your society.</h2>
           </div>
           <div className="pricing-grid">
             {pricingPlans.map((plan) => (
@@ -731,7 +740,7 @@ export default function App() {
         <section className="section">
           <div className="section-heading reveal">
             <p className="eyebrow">Proof & Trust</p>
-            <h2>Strong enough for a sales conversation, concrete enough for a stakeholder review.</h2>
+            <h2>Built for societies that need clear records, safer payments, and dependable admin control.</h2>
           </div>
           <div className="testimonial-grid">
             {testimonials.map((item) => (
@@ -751,12 +760,9 @@ export default function App() {
           </div>
           <div className="security-grid">
             {trustPoints.map((point) => (
-              <article className="security-card reveal" key={point}>
-                <h3>{point}</h3>
-                <p>
-                  Sociopay is grounded in production-minded flows for authentication, payment checks,
-                  receipts, reminders, and traceable operational data.
-                </p>
+              <article className="security-card reveal" key={point.title}>
+                <h3>{point.title}</h3>
+                <p>{point.body}</p>
               </article>
             ))}
           </div>
