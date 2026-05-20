@@ -154,6 +154,15 @@ img {
   white-space: nowrap;
 }
 
+.nav .nav-highlight {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--violet), #9e53ff);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(123, 29, 242, 0.18);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -313,7 +322,6 @@ img {
 .investor-card,
 .pricing-card,
 .testimonial-card,
-.deployment-card,
 .download-card,
 .legal-card {
   background: var(--surface);
@@ -354,7 +362,6 @@ img {
 .investor-grid,
 .pricing-grid,
 .testimonial-grid,
-.deployment-grid,
 .contact-grid,
 .comparison-panel,
 .quick-actions,
@@ -543,8 +550,7 @@ img {
 .screen-grid,
 .investor-grid,
 .pricing-grid,
-.testimonial-grid,
-.deployment-grid {
+.testimonial-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -571,7 +577,6 @@ img {
 .investor-card,
 .pricing-card,
 .testimonial-card,
-.deployment-card,
 .download-card {
   padding: 28px;
   border-radius: var(--radius-lg);
@@ -585,14 +590,12 @@ img {
 
 .investor-grid,
 .pricing-grid,
-.testimonial-grid,
-.deployment-grid {
+.testimonial-grid {
   gap: 18px;
 }
 
 .investor-card,
-.testimonial-card,
-.deployment-card {
+.testimonial-card {
   display: grid;
   gap: 14px;
 }
@@ -603,7 +606,6 @@ img {
 }
 
 .pricing-card-featured,
-.deployment-card-accent,
 .download-card {
   background: linear-gradient(135deg, rgba(123, 29, 242, 0.95), rgba(53, 41, 114, 0.94));
 }
@@ -611,8 +613,6 @@ img {
 .pricing-card-featured h3,
 .pricing-card-featured p,
 .pricing-card-featured li,
-.deployment-card-accent h3,
-.deployment-card-accent p,
 .download-card h2,
 .download-card p,
 .download-card .eyebrow {
@@ -621,8 +621,7 @@ img {
 
 .pricing-top,
 .download-card,
-.download-actions,
-.deployment-tags {
+.download-actions {
   display: flex;
 }
 
@@ -632,8 +631,7 @@ img {
   gap: 12px;
 }
 
-.pricing-badge,
-.deployment-tags span {
+.pricing-badge {
   padding: 10px 12px;
   border-radius: 999px;
   background: rgba(123, 29, 242, 0.1);
@@ -642,8 +640,7 @@ img {
   font-weight: 700;
 }
 
-.pricing-card-featured .pricing-badge,
-.deployment-card-accent .deployment-tags span {
+.pricing-card-featured .pricing-badge {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
 }
@@ -665,14 +662,12 @@ img {
   color: rgba(248, 245, 255, 0.8);
 }
 
-.pricing-list,
-.deployment-list {
+.pricing-list {
   margin: 0;
   padding-left: 18px;
 }
 
-.pricing-list li + li,
-.deployment-list li + li {
+.pricing-list li + li {
   margin-top: 10px;
 }
 
@@ -685,11 +680,6 @@ img {
   font-size: 0.92rem;
 }
 
-.deployment-grid {
-  grid-template-columns: 1.15fr 0.85fr;
-}
-
-.deployment-tags,
 .download-actions {
   flex-wrap: wrap;
   gap: 12px;
@@ -1106,7 +1096,6 @@ img {
     grid-template-columns: 1fr 1fr;
   }
 
-  .deployment-grid,
   .download-card {
     grid-template-columns: 1fr;
   }
@@ -1186,6 +1175,12 @@ img {
     background: rgba(255, 255, 255, 0.72);
   }
 
+  .nav .nav-highlight {
+    padding: 8px 12px;
+    background: linear-gradient(135deg, var(--violet), #9e53ff);
+    color: #fff;
+  }
+
   .hero,
   .about-grid,
   .feature-grid,
@@ -1199,10 +1194,6 @@ img {
   .contact-grid,
   .preview-grid,
   .screen-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .deployment-grid {
     grid-template-columns: 1fr;
   }
 

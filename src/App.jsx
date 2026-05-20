@@ -124,14 +124,8 @@ const pricingPlans = [
     price: 'Contact us',
     cadence: '',
     description: 'For larger operators managing multiple communities or custom workflows.',
-    features: ['Multi-society rollout planning', 'Custom onboarding and deployment', 'Priority support and roadmap alignment'],
+    features: ['Multi-society rollout planning', 'Custom onboarding support', 'Priority support and roadmap alignment'],
   },
-];
-
-const deploymentSteps = [
-  'Run `npm install` and `npm run build` to produce the static site in `dist`.',
-  'Deploy to Netlify for built-in form handling, or deploy to Vercel with `VITE_CONTACT_FORM_ENDPOINT` set.',
-  'Point the contact form to your own API if you want CRM capture, email routing, or lead automation.',
 ];
 
 const previewScreens = [
@@ -548,10 +542,10 @@ export default function App() {
         </a>
         <nav className="nav">
           <a href="#about">About</a>
+          <a className="nav-highlight" href="#download">Download</a>
           <a href="#features">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#preview">Preview</a>
-          <a href="#download">Download</a>
           <a href="#privacy">Privacy</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -659,6 +653,32 @@ export default function App() {
               <span>{item.label}</span>
             </div>
           ))}
+        </section>
+
+        <section className="section download-section" id="download">
+          <div className="download-card reveal">
+            <div>
+              <p className="eyebrow">Direct Android Download</p>
+              <h2>Install Sociopay directly from the official website.</h2>
+              <p>
+                Download the signed Android APK from sociopay.in. If Android asks for permission,
+                allow installs from your browser only for this download, then turn it off again after installation.
+              </p>
+              <div className="download-meta" aria-label="Android app download details">
+                <span>Android APK</span>
+                <span>Official Sociopay build</span>
+                <span>Updated with each release</span>
+              </div>
+            </div>
+            <div className="download-actions">
+              <a className="button" href={androidApkPath} download>
+                Download APK
+              </a>
+              <a className="button button-ghost" href={`mailto:${supportEmail}`}>
+                Need Help?
+              </a>
+            </div>
+          </div>
         </section>
 
         <section className="section" id="about">
@@ -859,33 +879,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section">
-          <div className="section-heading reveal">
-            <p className="eyebrow">Deployment</p>
-            <h2>Ready for a clean handoff to Netlify, Vercel, or your own lead-capture backend.</h2>
-          </div>
-          <div className="deployment-grid">
-            <article className="deployment-card reveal">
-              <h3>Website delivery</h3>
-              <p>This React + Vite site already builds cleanly and publishes as static assets.</p>
-              <ul className="deployment-list">
-                {deploymentSteps.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ul>
-            </article>
-            <article className="deployment-card deployment-card-accent reveal">
-              <h3>Lead capture options</h3>
-              <p>Use Netlify Forms for a fast start, or connect a custom endpoint for CRM, email, or sales routing.</p>
-              <div className="deployment-tags">
-                <span>Netlify Forms</span>
-                <span>Vercel</span>
-                <span>Custom API</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
         <section className="section" id="faq">
           <div className="section-heading reveal">
             <p className="eyebrow">FAQ</p>
@@ -901,44 +894,19 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section download-section" id="download">
-          <div className="download-card reveal">
-            <div>
-              <p className="eyebrow">Direct Android Download</p>
-              <h2>Install Sociopay directly from the official website.</h2>
-              <p>
-                Download the signed Android APK from sociopay.in. If Android asks for permission,
-                allow installs from your browser only for this download, then turn it off again after installation.
-              </p>
-              <div className="download-meta" aria-label="Android app download details">
-                <span>Android APK</span>
-                <span>Official Sociopay build</span>
-                <span>Updated with each release</span>
-              </div>
-            </div>
-            <div className="download-actions">
-              <a className="button" href={androidApkPath} download>
-                Download APK
-              </a>
-              <a className="button button-ghost" href={`mailto:${supportEmail}`}>
-                Need Help?
-              </a>
-            </div>
-          </div>
-        </section>
-
         <section className="section contact-section" id="contact">
           <div className="contact-grid">
             <div className="contact-copy reveal">
               <p className="eyebrow">Contact</p>
               <h2>Want Sociopay for your society, residents, or admin team?</h2>
               <p>
-                Use the form to request a walkthrough, discuss customization, or plan deployment for your society maintenance workflow.
+                Use the form to request a walkthrough, discuss your society’s maintenance workflow,
+                or get help setting up residents, payments, receipts, and reports.
               </p>
               <ul className="contact-points">
-                <li>Netlify-ready contact handling is already configured</li>
-                <li>Custom backend submission is supported through environment configuration</li>
-                <li>React, Vite, and deployable static hosting setup are already in place</li>
+                <li>Book a guided demo for your society committee</li>
+                <li>Get help with admin onboarding and resident registration</li>
+                <li>Discuss maintenance payments, reports, receipts, and Razorpay setup</li>
               </ul>
             </div>
 
