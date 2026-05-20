@@ -757,21 +757,16 @@ export default function App() {
           <div className="preview-grid">
             <article className="preview-panel reveal">
               <div className="preview-phone">
-                <div className="preview-phone-top">
-                  <span className="preview-phone-dot"></span>
-                  <span>Sociopay</span>
-                  <span>Society</span>
-                </div>
-                <img src="/app-preview.png" alt="Sociopay mobile splash preview" />
+                <img src="/login-preview.jpeg" alt="Sociopay sign in screen" />
               </div>
             </article>
             <article className="preview-copy reveal">
-              <h3>From branding to workflow</h3>
+              <p className="eyebrow">Real App Screenshot</p>
+              <h3>Start with a clean sign-in flow</h3>
               <p>
-                The app already includes dedicated flows for Dashboard, Members, Expenses, Reports,
-                and Profile, with real actions like `Export PDF`, `Share My Receipt`, monthly reminders,
-                complaint handling, and Razorpay linked-account settings. These previews now mirror that
-                actual product language more closely.
+                Sociopay opens with a focused mobile login experience for society admins and residents.
+                From there, users can move into payments, receipts, expenses, reports, complaints, and
+                society payment settings without jumping between tools.
               </p>
               <ul className="use-case-list">
                 {useCases.map((item) => (

@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
     radial-gradient(circle at top left, rgba(123, 29, 242, 0.18), transparent 28%),
     radial-gradient(circle at 85% 18%, rgba(169, 137, 255, 0.22), transparent 22%),
     linear-gradient(180deg, #fcfbff 0%, var(--bg) 48%, #fbf9ff 100%);
+  overflow-x: hidden;
 }
 
 body::before {
@@ -146,6 +148,10 @@ img {
   gap: 24px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.nav a {
+  white-space: nowrap;
 }
 
 .button {
@@ -750,45 +756,54 @@ img {
 }
 
 .preview-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(123, 29, 242, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(244, 235, 255, 0.9));
 }
 
 .preview-phone {
-  width: min(100%, 360px);
-  padding: 14px;
-  border-radius: 34px;
-  background: linear-gradient(180deg, rgba(39, 34, 79, 0.98), rgba(74, 51, 144, 0.94));
-  box-shadow: 0 24px 60px rgba(69, 42, 134, 0.22);
-}
-
-.preview-phone-top {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 12px;
-  padding: 6px 6px 14px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.82rem;
-}
-
-.preview-phone-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #d7c8ff;
+  width: min(100%, 344px);
+  padding: 10px;
+  border-radius: 36px;
+  background: linear-gradient(180deg, #ffffff, #f0e5ff);
+  box-shadow: 0 28px 70px rgba(69, 42, 134, 0.24);
 }
 
 .preview-phone img {
   width: 100%;
+  aspect-ratio: 610 / 1356;
+  object-fit: cover;
   border-radius: 28px;
-  box-shadow: 0 18px 40px rgba(123, 29, 242, 0.12);
+  box-shadow: 0 18px 40px rgba(123, 29, 242, 0.1);
 }
 
 .preview-copy {
   display: grid;
-  gap: 18px;
+  align-content: center;
+  gap: 22px;
+  min-height: 640px;
+  padding: clamp(28px, 5vw, 54px);
+  border-radius: 34px;
+}
+
+.preview-copy h3 {
+  max-width: 620px;
+  font-size: clamp(2rem, 3.6vw, 3.9rem);
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.preview-copy p:not(.eyebrow) {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
 .screen-grid {
@@ -1111,22 +1126,64 @@ img {
 
 @media (max-width: 760px) {
   .page-shell {
-    width: min(calc(100% - 20px), var(--max-width));
-    padding-top: 10px;
+    width: min(calc(100% - 24px), var(--max-width));
+    padding-top: 12px;
   }
 
   .topbar {
-    position: static;
-    flex-wrap: wrap;
-    border-radius: 28px;
+    position: sticky;
+    top: 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 24px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 13px;
+  }
+
+  .topbar > .button {
+    min-width: auto;
+    padding: 11px 14px;
+    font-size: 0.88rem;
   }
 
   .nav {
     order: 3;
+    grid-column: 1 / -1;
     width: 100%;
-    justify-content: space-between;
-    gap: 12px;
-    font-size: 0.88rem;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    border-radius: 18px;
+    background: rgba(123, 29, 242, 0.06);
+    font-size: 0.84rem;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
   }
 
   .hero,
@@ -1154,14 +1211,36 @@ img {
   }
 
   .hero {
-    padding-top: 20px;
+    padding-top: 12px;
+    gap: 28px;
   }
 
   .hero h1,
   .section-heading h2,
   .contact-copy h2,
   .download-card h2 {
-    font-size: clamp(2rem, 9vw, 3rem);
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: -0.06em;
+  }
+
+  .hero-text {
+    margin-top: 16px;
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .mini-proof span,
+  .contact-points li,
+  .use-case-list li {
+    width: 100%;
   }
 
   .hero-visual {
